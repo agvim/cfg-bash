@@ -42,7 +42,41 @@ fi
 # further usage
 function define_colornames {
 COLORS=$(tput colors 2>/dev/null)
-if [[ $COLORS -ge 256 ]]
+if [[ $COLORTERM=="truecolor" ]]
+then
+    BASE03=$(printf "\033[38;2;0;43;54m")
+    BASE02=$(printf "\033[38;2;7;54;66m")
+    BASE01=$(printf "\033[38;2;88;110;117m")
+    BASE00=$(printf "\033[38;2;101;123;131m")
+    BASE0=$(printf "\033[38;2;131;148;150m")
+    BASE1=$(printf "\033[38;2;147;161;161m")
+    BASE2=$(printf "\033[38;2;238;232;213m")
+    BASE3=$(printf "\033[38;2;253;246;227m")
+    YELLOW=$(printf "\033[38;2;181;137;0m")
+    ORANGE=$(printf "\033[38;2;203;75;22m")
+    RED=$(printf "\033[38;2;220;50;47m")
+    MAGENTA=$(printf "\033[38;2;211;54;130m")
+    VIOLET=$(printf "\033[38;2;108;113;196m")
+    BLUE=$(printf "\033[38;2;38;139;210m")
+    CYAN=$(printf "\033[38;2;42;161;152m")
+    GREEN=$(printf "\033[38;2;133;153;0m")
+    BASE03BG=$(printf "\033[48;2;0;43;54m")
+    BASE02BG=$(printf "\033[48;2;7;54;66m")
+    BASE01BG=$(printf "\033[48;2;88;110;117m")
+    BASE00BG=$(printf "\033[48;2;101;123;131m")
+    BASE0BG=$(printf "\033[48;2;131;148;150m")
+    BASE1BG=$(printf "\033[48;2;147;161;161m")
+    BASE2BG=$(printf "\033[48;2;238;232;213m")
+    BASE3BG=$(printf "\033[48;2;253;246;227m")
+    YELLOWBG=$(printf "\033[48;2;181;137;0m")
+    ORANGEBG=$(printf "\033[48;2;203;75;22m")
+    REDBG=$(printf "\033[48;2;220;50;47m")
+    MAGENTABG=$(printf "\033[48;2;211;54;130m")
+    VIOLETBG=$(printf "\033[48;2;108;113;196m")
+    BLUEBG=$(printf "\033[48;2;38;139;210m")
+    CYANBG=$(printf "\033[48;2;42;161;152m")
+    GREENBG=$(printf "\033[48;2;133;153;0m")
+elif [[ $COLORS -ge 256 ]]
 then
     BASE03=$(tput setaf 234)
     BASE02=$(tput setaf 235)
