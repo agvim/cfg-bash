@@ -213,7 +213,7 @@ fi
 }
 
 # WE ARE IN THE FUCKING 21ST CENTURY!
-# use 256 colors instead of 8 when using xfce4-terminal or gnome-terminal
+# use TERM="xterm-256color" instead of 8 when using xfce4-terminal, gnome-terminal or kitty
 CMDLINEAPP=$(basename "$(</proc/$PPID/cmdline)")
 if [[ ($CMDLINEAPP == "xfce4-terminal") || ${CMDLINEAPP:0:14} == "gnome-terminal" || ($CMDLINEAPP == "kitty") ]]
 then
