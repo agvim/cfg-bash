@@ -258,8 +258,8 @@ if [ "$POWERLINED" -eq 1 ]; then
     export RIGHT_SEP=''
     export RIGHT_SEP_ALT=''
 else
-    export RIGHT_SEP_ALT='|'
-    export LEFT_SEP_ALT='|'
+    export RIGHT_SEP_ALT='│'
+    export LEFT_SEP_ALT='│'
 fi
 
 # other symbols
