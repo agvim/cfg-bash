@@ -250,19 +250,3 @@ if [[ -x /usr/bin/dircolors && $(tput colors) -ge 16 ]]
 then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
 fi
-
-# define symbols
-if [ "$POWERLINED" -eq 1 ]; then
-    export LEFT_SEP=''
-    export LEFT_SEP_ALT=''
-    export RIGHT_SEP=''
-    export RIGHT_SEP_ALT=''
-else
-    export RIGHT_SEP_ALT='│'
-    export LEFT_SEP_ALT='│'
-fi
-
-# other symbols
-CHECKMARK='✔'
-CROSS='✘'
-
