@@ -9,6 +9,18 @@ if [[ -z $POWERLINED ]]
 then
     export POWERLINED=1
 fi
+
+# define symbols
+if [ "$POWERLINED" -eq 1 ]; then
+    LEFT_SEP=''
+    LEFT_SEP_ALT=''
+    RIGHT_SEP=''
+    RIGHT_SEP_ALT=''
+else
+    RIGHT_SEP_ALT='│'
+    LEFT_SEP_ALT='│'
+fi
+
 # Theme, dark or light solarized
 if [[ -z $THEME ]]
 then
@@ -188,27 +200,39 @@ ENDSTANDOUT=$(tput rmso)
 # define inversion colors
 if [[ ($THEME == "light") ]]
 then
+    #foreground
     EMPHASIS=$BASE01
     PRIMARY=$BASE00
     SECONDARY=$BASE1
     BACKHL=$BASE2
     BACK=$BASE3
+    INVERTEDPRIMARY=$BASE3
+    INVERTEDBACK=$BASE0
+    #background
     EMPHASISBG=$BASE01BG
     PRIMARYBG=$BASE00BG
     SECONDARYBG=$BASE1BG
     BACKHLBG=$BASE2BG
     BACKBG=$BASE3BG
+    INVERTEDPRIMARYBG=$BASE3BG
+    INVERTEDBACKBG=$BASE0BG
 else
+    #foreground
     EMPHASIS=$BASE1
     PRIMARY=$BASE0
     SECONDARY=$BASE01
     BACKHL=$BASE02
     BACK=$BASE03
+    INVERTEDPRIMARY=$BASE3
+    INVERTEDBACK=$BASE00
+    #background
     EMPHASISBG=$BASE1BG
     PRIMARYBG=$BASE0BG
     SECONDARYBG=$BASE01BG
     BACKHLBG=$BASE02BG
     BACKBG=$BASE03BG
+    INVERTEDPRIMARYBG=$BASE3BG
+    INVERTEDBACKBG=$BASE00BG
 fi
 }
 

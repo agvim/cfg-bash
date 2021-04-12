@@ -1,25 +1,14 @@
 # prompt with solarized colors,
 
-# define symbols
-if [ "$POWERLINED" -eq 1 ]; then
-    LEFT_SEP=''
-    LEFT_SEP_ALT=''
-    RIGHT_SEP=''
-    RIGHT_SEP_ALT=''
-else
-    RIGHT_SEP_ALT='│'
-    LEFT_SEP_ALT='│'
-fi
-
 # other symbols
 CHECKMARK='✔'
 CROSS='✘'
 
 # one line for info with marked background color
 # one line for the promt symbol
-COMMANDSTATUS='$(if [[ $? -eq 0 ]]; then echo "\[$BASE3$GREENBG\] $CHECKMARK \[$GREEN\]"; else echo "\[$BASE3$REDBG\] $CROSS:$? \[$RED\]"; fi)'
-MODESTATUS='$(if [[ -n $SHELL_ENVIRONMENT ]]; then echo "\[$MAGENTABG\]$LEFT_SEP\[$BASE3$BOLD\] $SHELL_ENVIRONMENT \[$RESET$MAGENTA\]"; fi)'
-USERSTATUS='$(if [[ $EUID -ne 0 ]]; then echo "\[$BASE00BG\]$LEFT_SEP\[$BASE3\] \u@\h \[$BASE00$BACKHLBG\]$LEFT_SEP"; else echo "\[$ORANGEBG\]$LEFT_SEP\[$BASE3\] \u@\h \[$ORANGE$BACKHLBG\]$LEFT_SEP"; fi)'
+COMMANDSTATUS='$(if [[ $? -eq 0 ]]; then echo "\[$INVERTEDPRIMARY$GREENBG\] $CHECKMARK \[$GREEN\]"; else echo "\[$INVERTEDPRIMARY$REDBG\] $CROSS:$? \[$RED\]"; fi)'
+MODESTATUS='$(if [[ -n $SHELL_ENVIRONMENT ]]; then echo "\[$MAGENTABG\]$LEFT_SEP\[$INVERTEDPRIMARY$BOLD\] $SHELL_ENVIRONMENT \[$RESET$MAGENTA\]"; fi)'
+USERSTATUS='$(if [[ $EUID -ne 0 ]]; then echo "\[$INVERTEDBACKBG\]$LEFT_SEP\[$INVERTEDPRIMARY\] \u@\h \[$INVERTEDBACK$BACKHLBG\]$LEFT_SEP"; else echo "\[$ORANGEBG\]$LEFT_SEP\[$INVERTEDPRIMARY\] \u@\h \[$ORANGE$BACKHLBG\]$LEFT_SEP"; fi)'
 PROMPTSYMBOL='$(if [[ $EUID -ne 0 ]]; then echo "\[$ORANGE\]\$"; else echo "\[$RED\]#"; fi)'
 PS1="\[$RESET\]\[$BACKHLBG\]$COMMANDSTATUS$MODESTATUS$USERSTATUS\[$SECONDARY\] \w $(tput el)\[$RESET\]\n$PROMPTSYMBOL\[$RESET\] "
 unset PROMPTSYMBOL
