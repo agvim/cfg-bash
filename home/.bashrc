@@ -45,15 +45,11 @@ fi
 set -o vi
 
 # Colors and prompt customization
-if [ -f ~/.bash/display ]; then
-    . ~/.bash/display
-fi
-if [ -f ~/.bash/prompt ]; then
-    . ~/.bash/prompt
-fi
+. ~/.config/bash/display
+. ~/.config/bash/prompt
 
 # Alias definitions directory. Source all the files there
-if [ -d ~/.sourced ]; then
-    for F in ~/.sourced/*; do . $F; done
+if [ -d ~/.config/shell_sourced ]; then
+    for F in ~/.config/shell_sourced/*; do . $F; done
 fi
 
